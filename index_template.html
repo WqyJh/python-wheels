@@ -4,10 +4,8 @@
         <title>Python Wheels on Github</title>
     </head>
     <body>
-        {% for lib, files in libs.items() %}
-            {% for file in files %}
-                <a href="{{ lib }}.html">{{ lib }}</a>
-            {% endfor %}
+        {% for lib in libs %}
+            <a href="/{{ lib }}">{{ lib }}</a>
         {% endfor %}
     </body>
 </html>

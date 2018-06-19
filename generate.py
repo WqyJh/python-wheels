@@ -44,5 +44,5 @@ if __name__ == '__main__':
     for lib, files in libs.items():
         html = render_lib(lib, files)
 
-        with io.open('%s.html' % lib, 'w') as f:
+        with io.open('%s/index.html' % lib, 'w') as f:
             f.write(html)
