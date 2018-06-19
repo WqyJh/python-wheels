@@ -10,7 +10,7 @@ env = Environment(
 def find_libs():
     return {
         d: [f for f in os.listdir(d) if f.endswith('.whl')]
-        for d in os.listdir('.') if os.path.isdir(d) and not d.startswith('.')
+        for d in os.listdir('.') if os.path.isdir(d) and not d.startswith('.') and not d.startswith('__')
     }
 
 
