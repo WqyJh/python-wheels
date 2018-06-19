@@ -2,6 +2,10 @@ import os
 import io
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+env = Environment(
+        loader=FileSystemLoader(os.path.curdir),
+        autoescape=False
+    )
 
 def find_libs():
     return {
@@ -10,14 +14,8 @@ def find_libs():
     }
 
 
-def render():
-    libs = find_libs()
-
-    env = Environment(
-        loader=FileSystemLoader(os.path.curdir),
-        autoescape=False
-    )
-    template = env.get_template('template.html')
+def render_index(libs):
+    template = env.get_template('index_template.html')
 
     html = template.render({
         'libs': libs,
@@ -25,8 +23,26 @@ def render():
     return html
 
 
+def render_lib(lib, files):
+    template = env.get_template('lib_template.html')
+
+    html = template.render({
+        'lib': lib,
+        'files': files,
+    })
+    return html
+
+
 if __name__ == '__main__':
-    html = render()
+    libs = find_libs()
+    
+    index = render_index(libs)
 
     with io.open('index.html', 'w') as f:
-        f.write(html)
+        f.write(index)
+
+    for lib, files in libs.items():
+        html = render_lib(lib, files)
+
+        with io.open('%s.html' % lib, 'w') as f:
+            f.write(html)

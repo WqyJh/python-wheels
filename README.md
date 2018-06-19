@@ -3,5 +3,5 @@
 ## Usage
 
 ```bash
-pip install --index-url https://github.com/WqyJh/python-wheels/ pyHook
+pip install --index-url https://wqyjh.github.io/python-wheels/index.html pyHook
 ```
