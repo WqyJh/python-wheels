@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Wheels on Github</title>
+    </head>
+    <body>
+        {% for lib, files in libs.items() %}
+            {% for file in files %}
+                <a href="{{ lib }}/{{ file }}">{{ file }}</a>
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>
