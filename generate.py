@@ -1,3 +1,5 @@
+# Generate the html files for pypi index structure.
+
 import os
 import io
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -8,6 +10,18 @@ env = Environment(
     )
 
 def find_libs():
+    '''
+    Find all libraries. 
+
+    Return as the following dict:
+    {
+        'lib1': ['lib1-xxx.whl', 'lib1-yyy.whl'],
+        'lib2': ['lib2-xxx.whl', 'lib2-yyy.whl'],
+    }
+
+    The key is path of the libs.
+    The values is the filename of the wheels.
+    '''
     return {
         d: [f for f in os.listdir(d) if f.endswith('.whl')]
         for d in os.listdir('.') if os.path.isdir(d) and not d.startswith('.') and not d.startswith('__')

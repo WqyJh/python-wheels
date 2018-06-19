@@ -10,12 +10,12 @@ However, his site doesn't provide direct links for downloading, instead, it requ
 
 **pip:**
 ```bash
-pip install https://github.com/WqyJh/python-wheels/pyHook
+pip install --index-url https://wqyjh.github.io/python-wheels/ pyHook
 ```
 
 **requirements.txt**
 ```
---extra-index-url http://127.0.0.1:8000/
+--extra-index-url https://wqyjh.github.io/python-wheels/
 pyHook
 ```
 

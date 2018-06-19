@@ -1,3 +1,5 @@
+# Change library files' path and filename to lowercase
+
 import shutil
 import generate
 
